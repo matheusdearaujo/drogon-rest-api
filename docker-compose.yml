@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  drogon-rest-api:
+    build: .
+    image: drogon-api-cpp
+    container_name: drogon-rest-api
+    working_dir: /install/app
+    volumes:
+      - ./:/install/app
+    ports:
+      - 8989:80
+    networks:
+      - drogonapinet
+
+  # drogon-rest-api-db:
+  #   image: postgres
+  #   container_name: drogon-rest-api-db
+  #   restart: always
+  #   environment:
+  #     POSTGRES_DB: drogon_db
+  #     POSTGRES_USER: drogondb
+  #     POSTGRES_PASSWORD: drogondb
+  #   ports:
+  #     - 5231:5432
+  #   networks:
+  #     - drogonapinet
+
+networks:
+  drogonapinet:
+    driver: bridge
