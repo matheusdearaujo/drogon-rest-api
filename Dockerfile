@@ -14,6 +14,6 @@ USER drogon
 
 COPY --chown=drogon:drogon . .
 
-RUN chmod +x deploy.sh  
+RUN chmod +x /install/app/scripts/deploy.sh
 
-CMD sh deploy.sh 
+CMD sh /install/app/scripts/deploy.sh 
